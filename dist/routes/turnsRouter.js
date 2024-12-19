@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const routeTurn = (0, express_1.Router)();
+const turnController_1 = require("../controllers/turnController");
+routeTurn.get("/", turnController_1.turnsGetController);
+routeTurn.get("/:id", turnController_1.turnGetController);
+routeTurn.post("/schedule", turnController_1.turnCreateController);
+routeTurn.put("/cancel/:id", turnController_1.turnsUpdateController);
+exports.default = routeTurn;
