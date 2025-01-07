@@ -12,6 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.userLoginService = exports.userCreateService = exports.userGetService = exports.usersGetService = void 0;
 const data_source_1 = require("../config/data-source");
 const credentialService_1 = require("./credentialService");
+/*
+
+*/
 const usersGetService = () => __awaiter(void 0, void 0, void 0, function* () {
     const users = yield data_source_1.dataBaseUser.find({
         relations: {

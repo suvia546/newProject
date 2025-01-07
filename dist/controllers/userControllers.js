@@ -25,7 +25,9 @@ const userGetController = (req, res) => __awaiter(void 0, void 0, void 0, functi
 exports.userGetController = userGetController;
 const usersGetController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        console.log("USERSController1");
         const users = yield (0, userService_1.usersGetService)();
+        console.log("USERSController2");
         res.status(200).json(users);
     }
     catch (error) {

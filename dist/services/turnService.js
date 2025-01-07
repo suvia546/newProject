@@ -26,14 +26,11 @@ const turnGetService = (id) => __awaiter(void 0, void 0, void 0, function* () {
 exports.turnGetService = turnGetService;
 const turnCreateService = (date, time, userId, status) => __awaiter(void 0, void 0, void 0, function* () {
     const findUser = yield data_source_2.dataBaseUser.findOneBy({ id: userId });
-    console.log("findUser de la db en turnCreateService", findUser);
     if (findUser) {
         const turnRegister = { date: date, time: time, userId: findUser, status: status };
-        console.log("turnregister de turnCreateService", turnRegister);
         const newTurn = yield data_source_1.dataBaseTurn.create(turnRegister);
         const turnId = yield data_source_1.dataBaseTurn.save(newTurn);
-        console.log("newTurn de turnCreateService", turnId); //
-        return newTurn;
+        return turnId;
     }
     else {
         throw new Error("User not found");

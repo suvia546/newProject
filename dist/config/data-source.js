@@ -11,22 +11,20 @@ const turnEntity_1 = require("../entity/turnEntity");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 exports.AppDataSource = new typeorm_1.DataSource({
-    //npx typeorm migration:run
-    // url:"postgresql://postgres:lGYxWoixirvmOMKACVqtFMwrnXidgFnM@junction.proxy.rlwy.net:38067/railway",
     type: "postgres",
-    host: "localhost", //"junction.proxy.rlwy.net",
-    port: 5433, //38067,
-    username: "postgres", //"postgres",
-    password: "Ageofultron123.", //"lGYxWoixirvmOMKACVqtFMwrnXidgFnM",
-    database: "postgres", //"railway",
+    host: process.env.HOST_DB,
+    port: 5433,
+    username: process.env.USERNAME_DB,
+    password: process.env.PASSWORD_DB,
+    database: process.env.DATABASE,
     //dropSchema:true,
-    //synchronize: true,
+    synchronize: true,
     logging: false,
     entities: [userEntity_1.Usser, credentialEntity_1.Credential, turnEntity_1.Turn],
     subscribers: [],
     migrations: ["dist/migration/*.js"],
 });
-console.log("ENVIRONMENT VARIABLE:", process.env.HOST_DBR, process.env.USERNAME_DBR, process.env.PASSWORD_DBR, process.env.DATABASER);
+console.log("environment varibales", process.env.USERNAME_DB, process.env.PASSWORD_DB);
 exports.dataBaseUser = exports.AppDataSource.getRepository(userEntity_1.Usser);
 exports.dataBaseCredential = exports.AppDataSource.getRepository(credentialEntity_1.Credential);
 exports.dataBaseTurn = exports.AppDataSource.getRepository(turnEntity_1.Turn);

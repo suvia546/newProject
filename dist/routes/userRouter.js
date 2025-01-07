@@ -8,5 +8,4 @@ route.get("/", userControllers_1.usersGetController);
 route.get("/:id", userControllers_1.userGetController);
 route.post("/register", userControllers_1.userCreateController);
 route.post("/login", userControllers_1.userLoginController);
-//route.delete("/",userDeleteController)
 exports.default = route;
