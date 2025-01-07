@@ -15,7 +15,7 @@ const corsOption = {
     },
     method:'GET,POST,PUT,DELETE',
     allowedHeaders:'Conten-Type, Authorization'
-}*/
+},*/
 
 app.use(morgan("dev"));
 app.use(express.json());
